@@ -1,6 +1,6 @@
 import click
 from blog import db,app
-from blog.models import User,Movie
+from blog.models import User,Ariticles
 # 自定义initdb
 @app.cli.command()
 @click.option('--drop',is_flag=True,help='删除之后再创建')
@@ -15,23 +15,20 @@ def initdb(drop):
 def forge():
     db.create_all()
     name = "Bruce"
-    movies = [
-        {'title':'杀破狼','year':'2003'},
-        {'title':'扫毒','year':'2018'},
-        {'title':'捉妖记','year':'2016'},
-        {'title':'囧妈','year':'2020'},
-        {'title':'葫芦娃','year':'1989'},
-        {'title':'玻璃盒子','year':'2020'},
-        {'title':'调酒师','year':'2020'},
-        {'title':'釜山行','year':'2017'},
-        {'title':'导火索','year':'2005'},
-        {'title':'叶问','year':'2015'}
+    ariticles = [
+        {'title':'如何防治蝗灾','content':'xxxxxxxxx','author':'晓红'},
+        {'title':'如何防治蝗灾','content':'xxxxxxxxx','author':'晓红'},
+        {'title':'如何防治蝗灾','content':'xxxxxxxxx','author':'晓红'},
+        {'title':'如何防治蝗灾','content':'xxxxxxxxx','author':'晓红'},
+        {'title':'如何防治蝗灾','content':'xxxxxxxxx','author':'晓红'},
+        {'title':'如何防治蝗灾','content':'xxxxxxxxx','author':'晓红'},
+        {'title':'如何防治蝗灾','content':'xxxxxxxxx','author':'晓红'}
     ]
     user = User(name=name)
     db.session.add(user)
-    for m in movies:
-        movie = Movie(title=m['title'],year=m['year'])
-        db.session.add(movie)
+    for m in ariticles:
+        ariticle = Ariticles(title=m['title'],content=m['content'],author=m['author'])
+        db.session.add(ariticle)
     db.session.commit()
     click.echo('数据导入完成')
 
