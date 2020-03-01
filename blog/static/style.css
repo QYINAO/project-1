@@ -3,6 +3,7 @@ body{
     margin: auto;
     font-size:14px;
     font-family: Arial, Helvetica, sans-serif;
+    background: url("../static/images/5.jpg") no-repeat;background-size:cover;
 }
 /* 页脚 footer */
 footer{
